@@ -1,6 +1,8 @@
-import List, { toggle } from './lib/list';
+import List from './lib/list';
+import toggle from './lib/toggle';
 // import fetchData from './lib/storage';
 import fyrirlesturBirta from './lib/fyrirlestur';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -10,8 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fyrirlesturBirta();
   } else {
     const list = new List();
-    list.upploadClasses(JSON.parse(localStorage.getItem('json-file')));
-    const filters = document.querySelector('button');
-    filters.addEventListener('click', toggle);
+    toggle();
+    list.upploadClasses(JSON.parse(localStorage.getItem('json-file')));  
   }
 });

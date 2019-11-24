@@ -1,9 +1,12 @@
 // import empty from './helpers';
 const d = document;
 const LOCALSTORAGE_KEY = 'json-file';
+let Html__button = d.getElementsByClassName('Html');
+let Css__button = d.getElementsByClassName('Css');
+let Js__button = d.getElementsByClassName('Javascript');
 export default class List {
   constructor(gogn, i) {
-    this.container = document.querySelector('.list');
+    this.container = document.querySelector('.list__row');
     this.load();
     this.upploadClasses(gogn);
     this.CreateLecture(gogn, i);
@@ -49,40 +52,45 @@ export default class List {
       // ===========================
 
       const div_class = d.createElement('div');
-      div_class.className = 'list__col listItem';
+      div_class.className = 'list__col';
       this.container.appendChild(div_class);
 
       const LImage = d.createElement('img');
       const LBot = d.createElement('div');
       const LCategory = d.createElement('p');
       const LTitle = d.createElement('h2');
+      const LRammi = d.createElement('div');
 
       LImage.className = 'listItem__image';
       LBot.className = 'listItem__bottom';
       LCategory.className = 'listItem__category';
       LTitle.className = 'list';
+      LRammi.className = 'listItem';
 
-      try {
+      if( Lecture["thumbnail"]){
         LImage.src = Lecture["thumbnail"];
       }
-      catch{
+      else{
 
+        LImage.className = 'listItem__image no__image';
       }
       LCategory.appendChild(d.createTextNode(Lecture["category"]));
       LTitle.appendChild(d.createTextNode(Lecture["title"]));
 
-      div_class.appendChild(LImage);
-      div_class.appendChild(LBot);
+      LRammi.appendChild(LImage);
+      LRammi.appendChild(LBot);
 
       LBot.appendChild(LCategory);
       LBot.appendChild(LTitle);
+
+      div_class.appendChild(LRammi);
     }
   }
 
 
 }
 export function fetchData() {
-  fetch('./lectures.json')
+  fetch('lectures.json')
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -95,19 +103,5 @@ export function fetchData() {
     });
 
 }
-export function toggle(e) {
-  e.preventDefault();
-  const Html__button = d.getElementsByClassName('Html');
-  const Css__button = d.getElementsByClassName('Css');
-  const Js__button = d.getElementsByClassName('Javascript');
 
-  Html__button.addEventListener('click', () => {
-    Html__button.className = 'button__html';
-  });
-  Css__button.addEventListener('click', () => {
-    Css__button.className = 'button__css';
-  });
-  Js__button.addEventListener('click', () => {
-    Js__button.className = 'button__javascript';
-  });
-}
+
