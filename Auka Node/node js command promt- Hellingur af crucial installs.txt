@@ -1,0 +1,13 @@
+npm install --save @babel/polyfill
+npm install --save-dev rollup
+npm install -g browser-sync
+npm install browser-sync --save-dev
+npm install --save-dev rollup
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+npm install --save-dev rollup-plugin-babel
+npm install eslint
+npm i -g eslint
+npm install -g install-peerdeps 
+install-peerdeps --dev eslint-config-airbnb-base
+npm run lint -- --fix
+npm install --save-dev rollup-watch
