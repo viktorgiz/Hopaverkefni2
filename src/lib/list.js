@@ -82,7 +82,7 @@ export default class List {
 
 }
 export function fetchData() {
-  fetch('../lectures.json')
+  fetch('./lectures.json')
     .then((response) => {
       if (response.ok) {
         return response.json();
