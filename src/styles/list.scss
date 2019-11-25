@@ -11,12 +11,13 @@
 
   &__row {
     @include row;
-    margin-bottom: $gutter * 2;
+    // margin-bottom: $gutter * 2;
     flex-wrap: wrap;
   }
 
   &__col {
     @include columns(12);
+    // height:100%;
     height:100px;
     display:inline-block;
     margin-bottom: $gutter * 2;
