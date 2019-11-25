@@ -20,13 +20,11 @@
   &__image {
     display: flex;
     align-items: center;
-    width: 100%;
 
     img { /* stylelint-disable-line */
       width: 100%;
     }
   }
-
 // Taka flex í burtu
   &__bottom {
     display: flex;
@@ -60,8 +58,3 @@
     font-size: 2rem;
   }
 }
-
-.no__image{
-  height: 100%;
-}
-
