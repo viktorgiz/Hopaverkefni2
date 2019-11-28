@@ -21,7 +21,7 @@
 
     transition: background-color 300ms ease-in-out;
 
-    &:hover {
+   /* &:hover {
       background-color: #aaa;
     }
 
@@ -32,5 +32,34 @@
         background-color: #1a1;
       }
     }
+    */
   }
 }
+
+.button{
+  background-color: #aaa;
+  &__html{
+    background-color: #2d2;
+       &:hover{
+        background-color: #2d2;
+     }
+  }
+
+  &__css{
+    background-color: #2d2;
+    &:hover{
+      background-color: #2d2;
+    }
+  }
+
+  &__js{
+    background-color: #2d2;
+    &:hover{
+      background-color: #2d2;
+    }
+  }
+  
+
+}
+
+
