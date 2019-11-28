@@ -18,10 +18,17 @@
 
     background-color: #ccc;
     border-radius: 16px;
+    outline: none;
 
     transition: background-color 300ms ease-in-out;
 
-   /* &:hover {
+&__html{
+  outline:none;
+}
+
+
+
+    /*&:hover {
       background-color: #aaa;
     }
 
@@ -33,11 +40,18 @@
       }
     }
     */
+    
   }
 }
 
 .button{
-  background-color: #aaa;
+  background-color: #ccc;
+  transition: background-color 300ms ease-in-out;
+  outline:none;
+  &:hover{
+    background-color: #aaa;
+  }
+
   &__html{
     background-color: #2d2;
        &:hover{
