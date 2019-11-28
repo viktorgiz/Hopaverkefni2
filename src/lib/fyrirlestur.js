@@ -1,4 +1,4 @@
-// import videoPlayer from './lib/videoPlayer';
+import { youtubeContent, textContent, quoteContent } from './Contents';
 
 let divMain;
 let Title;
@@ -13,6 +13,7 @@ export default function fyrirlestur() {
   LContent = jsonFile['content'];
 
   divMain = d.querySelector('main');
+  div
   // content =
   Title = d.querySelector('h1');
   Title.appendChild(d.createTextNode(jsonFile['title']));
@@ -24,21 +25,16 @@ export default function fyrirlestur() {
 
   for (let i = 0; i < LContent.length; i += 1) {
     if (LContent[i]['type'] == 'youtube') {
-      let videoContainer = d.createElement('div');
-      let videoDiv = d.createElement('iframe');
+      youtubeContent(i);
+    }
+    else if (LContent[i]['type'] == 'text'){
+      // textContent(i);
+      textContent(i);
 
-      videoContainer.className = 'Fyrirlestur__Youtube__Container';
-      videoDiv.className = 'Fyrirlestur__Youtube';
-
-      videoContainer.appendChild(videoDiv);
-      divMain.appendChild(videoContainer);
-      videoDiv.src = LContent[i]['data'];
-      videoDiv.frameborder = '0';
-      videoDiv.allowfullscreen = '0';
-
-    // } if else (LContent[i]['type'] == 'text'){
-    //   let 
-    // } if else (LContent[i]['type'] == 'quote'){
+    } 
+    else if (LContent[i]['type'] == 'quote'){
+      quoteContent(i);
+    }
 
     // } if else (LContent[i]['type'] == 'heading'){
 
