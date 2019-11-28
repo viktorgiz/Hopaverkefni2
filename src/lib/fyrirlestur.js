@@ -13,7 +13,6 @@ export default function fyrirlestur() {
   LContent = jsonFile['content'];
 
   divMain = d.querySelector('main');
-  div
   // content =
   Title = d.querySelector('h1');
   Title.appendChild(d.createTextNode(jsonFile['title']));
