@@ -1,18 +1,26 @@
-import List from './lib/list';
+import List, {empty, fyrirlesturBirta} from './lib/list';
 import toggle from './lib/toggle';
 // import fetchData from './lib/storage';
-import fyrirlesturBirta from './lib/fyrirlestur';
+import fyrirlestur from './lib/fyrirlestur';
 
+let jsonList;
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
 
   if (isLecturePage) {
-    fyrirlesturBirta();
+    fyrirlestur();
   } else {
     const list = new List();
-    toggle();
-    list.upploadClasses(JSON.parse(localStorage.getItem('json-file')));  
+
+    jsonList = JSON.parse(localStorage.getItem('json-file'));
+ 
+    document.addEventListener('click', ()=>{
+      toggle(event);
+      empty(list.container);
+      list.upploadClasses(jsonList);
+      fyrirlesturBirta(event);
+    });
   }
 });
