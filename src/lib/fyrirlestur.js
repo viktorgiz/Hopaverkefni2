@@ -1,21 +1,27 @@
-import { youtubeContent, textContent, quoteContent } from './Contents';
+import { youtubeContent, textContent, quoteContent, imageContent, headingContent, listContent, codeContent, Footer } from './Contents';
 
 let divMain;
 let Title;
+let divRow;
 // let content;
 
-let jsonFile;
+let jsonSkra;
 let LContent;
 let d = document;
 
 export default function fyrirlestur() {
-  jsonFile = JSON.parse(localStorage['json-file']);
-  LContent = jsonFile['content'];
+  jsonSkra = JSON.parse(localStorage["json-file"]);
+  LContent = jsonSkra['content'];
 
-  divMain = d.querySelector('main');
+  let divMain = d.querySelector('main');
+  divRow = d.createElement('div');
+
+  divRow.className = 'FyrirlesturWidth';
+  divMain.appendChild(divRow);
+
   // content =
   Title = d.querySelector('h1');
-  Title.appendChild(d.createTextNode(jsonFile['title']));
+  Title.appendChild(d.createTextNode(jsonSkra['title']));
 
   // If site contains video
   // const isVideoPage = page.classList.contains('videoPlayer');
@@ -29,20 +35,27 @@ export default function fyrirlestur() {
     else if (LContent[i]['type'] == 'text'){
       // textContent(i);
       textContent(i);
-
-    } 
-    else if (LContent[i]['type'] == 'quote'){
+    } else if (LContent[i]['type'] == 'quote'){
       quoteContent(i);
+    } else if (LContent[i]['type'] == 'image'){
+      imageContent(i);
+    } else if (LContent[i]['type'] == 'heading'){
+      headingContent(i);
+    } else if (LContent[i]['type'] == 'list'){
+      listContent(i);
     }
-
-    // } if else (LContent[i]['type'] == 'heading'){
-
-    // } if else (LContent[i]['type'] == 'list'){
-
-    // }
+    else if (LContent[i]['type'] == 'code'){
+      codeContent(i);
+    }
   }
+  Footer();
   // if (isVideoPage){
   //   videoPlayer();
   // }
+}
+export function klaraFyrirlestur(event) {
+  if ( event.target.className === 'KlaraFyrirlestur' ) {
+    localStorage.removeItem('json-file');
+  }
 }
 
