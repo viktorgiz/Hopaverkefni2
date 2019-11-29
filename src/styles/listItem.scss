@@ -7,11 +7,12 @@
   text-decoration: none;
 
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: stretch;
 
   background-color: #ccc;
 
   transition: background-color 300ms ease-in-out;
+  display:flex;
 
   &:hover {
     background-color: #aaa;
@@ -30,8 +31,9 @@
 // Taka flex í burtu
   &__bottom {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     padding: $gutter / 2;
+    margin-top:auto;
   }
 
   &__texts {
@@ -64,6 +66,4 @@
 .no__image{
   display: flex;
   align-content: center;
-  height: 235px;
 }
-

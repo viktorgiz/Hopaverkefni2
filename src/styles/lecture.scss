@@ -11,20 +11,98 @@
     padding-right: $gutter;
     padding-left: $gutter;
   }
-  &__Youtube__Container{
+}
+.Content {
+  &__padding{
+    margin-bottom: $gutter;
+  }
+
+  &__video1{
     width:100%;
     height:0;
     position: relative;
     padding-bottom:56.25%;
   }
-  &__Youtube{
+  &__video2{
     width: 100%;
     height: 100%;
     left: 0;
     position: absolute;
   }
+  &__text{
+    // Letur
+    font-size:16px;
+  }
+  &__quoteContainer{
+    background-color: gainsboro;
+    padding: $gutter/2 $gutter/2;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
     
+    @media(max-width: 800){
+      width: auto;
+    }
+  }
   
+  &__quote{
+    padding-left: $gutter/2;
+    margin-bottom: $gutter;
+  }
+  &__caption{
+    padding: 0 10px 0;
+    padding-top: $gutter/2;
+  }
+  &__captionImg {
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+  }
+  &__listItem{
+    padding-bottom: $gutter;
+  }
+  &__codeContainer{
+    p{
+      padding:0px;
+    }
+  }
+  &__code{
+    font-family:'Courier New', Courier, monospace;
+  }
+   
+
+}
+.Footer{
+  &__Container{
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+    padding: $gutter*2;
+  }
+  &__KlaraFyrirlestur{
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: $gutter;
+  }
+  &__FinishedActive{
+    // Bæta við checkmarki
+    color: green; 
+  }
+  &__Tilbaka{
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+p{
+  padding: 10px 0;
+  line-height: 1.5;
+}
+.FyrirlesturWidth{
+  max-width: 66%;
+  margin: 0 auto;
+}
+.Content__list ul{
+  list-style-position: outside;
 }
 
 
