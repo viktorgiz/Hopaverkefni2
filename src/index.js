@@ -1,20 +1,25 @@
 import List, {empty, fyrirlesturBirta} from './lib/list';
 import toggle from './lib/toggle';
 // import fetchData from './lib/storage';
-import fyrirlestur, { klaraFyrirlestur } from './lib/fyrirlestur';
+import fyrirlestur, { klaraFyrirlestur, FaraAForsidu } from './lib/fyrirlestur';
 
 let jsonList;
 
-
 document.addEventListener('DOMContentLoaded', () => {
+  window.load = function() {
+    this.localStorage.clear;
+  }
+
+
   const page = document.querySelector('body');
   const isLecturePage = page.classList.contains('lecture-page');
 
   if (isLecturePage) {
     fyrirlestur();
     document.addEventListener('click', ()=>{
-
       klaraFyrirlestur(event);
+      FaraAForsidu(event);
+      
     })
   } else {
     const list = new List();
