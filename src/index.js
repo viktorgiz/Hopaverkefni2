@@ -1,9 +1,10 @@
 import List, {empty, fyrirlesturBirta} from './lib/list';
 import toggle from './lib/toggle';
 // import fetchData from './lib/storage';
-import fyrirlestur from './lib/fyrirlestur';
+import fyrirlestur, { klaraFyrirlestur } from './lib/fyrirlestur';
 
 let jsonList;
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -11,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (isLecturePage) {
     fyrirlestur();
+    document.addEventListener('click', ()=>{
+
+      klaraFyrirlestur(event);
+    })
   } else {
     const list = new List();
 
