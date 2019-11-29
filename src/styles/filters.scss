@@ -17,10 +17,14 @@
     cursor: pointer;
 
     background-color: #ccc;
-    border-radius: 16px;
+    border-radius: 1em;
     outline: none;
 
     transition: background-color 300ms ease-in-out;
+
+    &:hover{
+      background-color: #aaa;
+    }
 
 &__html{
   outline:none;
@@ -73,3 +77,5 @@
   
 
 }
+
+

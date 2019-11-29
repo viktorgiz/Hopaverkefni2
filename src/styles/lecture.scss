@@ -36,7 +36,7 @@
   // 
   &__text{
     // Letur
-    font-size:16px;
+    font-size:1em;
   }
   // 
   &__quoteContainer{
@@ -55,7 +55,7 @@
     margin-bottom: $gutter;
   }
   &__caption{
-    padding: 0 10px 0;
+    padding: 0 $gutter 0;
     padding-top: $gutter/2;
   }
   // Img
@@ -73,7 +73,7 @@
   // Code
   &__codeContainer{
     p{
-      padding:0px;
+      padding:0em;
     }
 
   
@@ -110,7 +110,7 @@
   }
 }
 p{
-  padding: 10px 0;
+  padding: $gutter/2 0;
   line-height: 1.5;
 }
 .FyrirlesturWidth{
