@@ -1,4 +1,3 @@
-// import empty from './helpers';
 const d = document;
 const LOCALSTORAGE_KEY = 'json-file';
 let Html__button;
@@ -51,7 +50,7 @@ export default class List {
       div_class.className = 'list__col';
       this.container.appendChild(div_class);
 
-      const LImage = d.createElement('img');
+      let LImage = d.createElement('img');
       const LBot = d.createElement('div');
       const LCategory = d.createElement('p');
       const LTitle = d.createElement('h2');
@@ -60,14 +59,16 @@ export default class List {
       LImage.className = 'listItem__image';
       LBot.className = 'listItem__bottom';
       LCategory.className = 'listItem__category';
-      LTitle.className = 'list';
+      LTitle.className = 'listItem__title';
       LRammi.className = 'listItem';
       LRammi.id = Lecture['slug'];
 
       if (Lecture.thumbnail) {
         LImage.src = Lecture.thumbnail;
       } else {
+        LImage = d.createElement('div');
         LImage.className = 'listItem__image no__image';
+
       }
       LCategory.appendChild(d.createTextNode(Lecture.category));
       LTitle.appendChild(d.createTextNode(Lecture.title));
@@ -91,8 +92,8 @@ export default class List {
       })
       .then((data) => {
         // List.upploadClasses(data);
-        localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(data));
-        this.upploadClasses(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)));
+        localStorage.setItem('json-file', JSON.stringify(data));
+        this.upploadClasses(JSON.parse(localStorage.getItem('json-file')));
       });
   }
 }
