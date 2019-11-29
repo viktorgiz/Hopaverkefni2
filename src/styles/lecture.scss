@@ -17,6 +17,10 @@
     margin-bottom: $gutter;
   }
 
+  &__heading{
+    font-size: 1.5rem;
+  }
+  // 
   &__video1{
     width:100%;
     height:0;
@@ -29,13 +33,15 @@
     left: 0;
     position: absolute;
   }
+  // 
   &__text{
     // Letur
     font-size:16px;
   }
+  // 
   &__quoteContainer{
     background-color: gainsboro;
-    padding: $gutter/2 $gutter/2;
+    padding: $gutter;
     margin-left: -$gutter;
     margin-right: -$gutter;
     
@@ -52,22 +58,29 @@
     padding: 0 10px 0;
     padding-top: $gutter/2;
   }
+  // Img
   &__captionImg {
     width: 100%;
     display: inline-block;
     margin: 0;
     text-align: left;
+    font-style: italic;
   }
+  // Listi
   &__listItem{
     padding-bottom: $gutter;
   }
+  // Code
   &__codeContainer{
     p{
       padding:0px;
     }
+
+  
+
   }
   &__code{
-    font-family:'Courier New', Courier, monospace;
+    font-family:"Roboto Mono","Courier new",monospace;
   }
    
 
@@ -78,6 +91,8 @@
     display:flex;
     flex-direction: column;
     padding: $gutter*2;
+    font-family:"Roboto Mono",'Courier New', Courier, monospace;
+   // font-weight: bold;
   }
   &__KlaraFyrirlestur{
     margin: 0 auto;
@@ -91,6 +106,7 @@
   &__Tilbaka{
     margin: 0 auto;
     text-align: center;
+
   }
 }
 p{
