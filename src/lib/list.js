@@ -60,7 +60,7 @@ export default class List {
       LImage.className = 'listItem__image';
       LBot.className = 'listItem__bottom';
       LCategory.className = 'listItem__category';
-      LTitle.className = 'list';
+      LTitle.className = 'listItem__title';
       LRammi.className = 'listItem';
       LRammi.id = Lecture['slug'];
 
