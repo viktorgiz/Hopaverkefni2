@@ -1,9 +1,12 @@
+import {LoadContent} from './storage';
+
 let d = document;
-let jsonFile = JSON.parse(localStorage['json-file']);
-let LContent = jsonFile['content'];
+// let jsonFile = JSON.parse(localStorage['json-file']);
 let divRow;
 
 export function youtubeContent(i) {
+    let LContent = LoadContent()['content'];
+
     let youtubeContent = d.createElement('div');
     let video1 = d.createElement('div');
     let video2 = d.createElement('iframe');
@@ -23,6 +26,8 @@ export function youtubeContent(i) {
 }
 
 export function textContent(i){
+    let LContent = LoadContent()['content'];
+
     divRow = d.getElementsByClassName('FyrirlesturWidth')[0];
     let textContainer = d.createElement('div');
     let paragraphs = LContent[i]['data'].split('\n');
@@ -39,6 +44,8 @@ export function textContent(i){
 }
 
 export function quoteContent(i){
+    let LContent = LoadContent()['content'];
+
     divRow = d.getElementsByClassName('FyrirlesturWidth')[0];
     // <Div>
     let quoteContent = d.createElement('div');
@@ -61,6 +68,8 @@ export function quoteContent(i){
 }
 
 export function imageContent(i) {
+    let LContent = LoadContent()['content'];
+
     divRow = d.getElementsByClassName('FyrirlesturWidth')[0];
     let imageContent = d.createElement('div');
 
@@ -80,6 +89,8 @@ export function imageContent(i) {
     imageContent.appendChild(caption);
 }
 export function headingContent(i){
+    let LContent = LoadContent()['content'];
+
     divRow = d.getElementsByClassName('FyrirlesturWidth')[0];
     let headingContent = d.createElement('div');
     let heading = d.createElement('h2');
@@ -93,6 +104,8 @@ export function headingContent(i){
 
 }
 export function listContent(i){
+    let LContent = LoadContent()['content'];
+
     divRow = d.getElementsByClassName('FyrirlesturWidth')[0];
     let listContent = d.createElement('div');
     let listUl = d.createElement('ul');
@@ -114,6 +127,8 @@ export function listContent(i){
     }
 }
 export function codeContent(i) {
+    let LContent = LoadContent()['content'];
+
     divRow = d.getElementsByClassName('FyrirlesturWidth')[0];
     let codeContent = d.createElement('div');
     codeContent.className = 'Content__codeContainer Content__padding';
@@ -136,6 +151,8 @@ export function codeContent(i) {
 
 }
 export function Footer() {
+    let LContent = LoadContent()['content'];
+
     divRow = d.getElementsByClassName('FyrirlesturWidth')[0];
     let klaraContent = d.createElement('div');
     klaraContent.className = 'Footer__Container Content__padding';

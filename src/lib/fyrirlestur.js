@@ -1,5 +1,5 @@
 import { youtubeContent, textContent, quoteContent, imageContent, headingContent, listContent, codeContent, Footer } from './Contents';
-
+import { SaveContent, LoadContent, FyrirlesturBuinToggle, KlaradirFyrirlestrar, } from './storage';
 let divMain;
 let Title;
 let divRow;
@@ -10,7 +10,21 @@ let LContent;
 let d = document;
 
 export default function fyrirlestur() {
-  jsonSkra = JSON.parse(localStorage["json-file"]);
+  // jsonSkra = JSON.parse(localStorage["json-file"]);
+  for (let i = 0; i < localStorage.length; i+=1 ){
+    if(localStorage.key(i) !=='slug') {
+      let X = JSON.parse(localStorage.getItem(localStorage.key(i)))['slug'];
+      let Y = JSON.parse(localStorage.getItem('slug'));
+      if (Y===X){
+        jsonSkra = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        // Setjum nú gögnin í geymslu, svo við getum sótt þau þegar við 
+        // förum í Content.js
+        SaveContent(jsonSkra);
+      }
+    }
+  }
+
+  jsonSkra = LoadContent();
   LContent = jsonSkra['content'];
 
   let divMain = d.querySelector('main');
@@ -54,8 +68,14 @@ export default function fyrirlestur() {
   // }
 }
 export function klaraFyrirlestur(event) {
-  if ( event.target.className === 'KlaraFyrirlestur' ) {
-    localStorage.removeItem('json-file');
+  if ( event.target.className === 'Footer__KlaraFyrirlestur' ) {
+    FyrirlesturBuinToggle();
+  }
+}
+export function FaraAForsidu(event) {
+  if ( event.target.className === 'Footer__Tilbaka' ) {
+    KlaradirFyrirlestrar();
+    window.location.replace('index.html');
   }
 }
 
