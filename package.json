@@ -15,7 +15,7 @@
     "rollup-watch": "rollup -c -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "Viktor Helgi Gizurarson, Þorsteinn Sigurðsson, Tindur Sigurðarson",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.7.4",
