@@ -31,7 +31,7 @@ export default function toggle(e) {
     } else {
       CssButton.className = 'filters__filter Css';
     }
-  } else if (e.srcElement.className == JsButton.className) {
+  } else if (e.srcElement.className === JsButton.className) {
     // JsButton.className = 'filters__filter JavaScript button__js';
     if (JsButton.className === 'filters__filter JavaScript') {
       JsButton.className = 'filters__filter JavaScript button__js';

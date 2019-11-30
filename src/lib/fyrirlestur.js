@@ -1,23 +1,26 @@
-import { youtubeContent, textContent, quoteContent, imageContent, headingContent, listContent, codeContent, Footer } from './Contents';
-import { SaveContent, LoadContent, FyrirlesturBuinToggle, KlaradirFyrirlestrar, } from './storage';
+import {
+  youtubeContent, textContent, quoteContent, imageContent, headingContent, listContent, codeContent, Footer, GraentEdaEkki,
+} from './Contents';
+import { SaveContent, LoadContent, FyrirlesturBuinToggle } from './storage';
+
 let divMain;
-let Title;
+let Header;
 let divRow;
 // let content;
 
 let jsonSkra;
 let LContent;
-let d = document;
+const d = document;
 
 export default function fyrirlestur() {
   // jsonSkra = JSON.parse(localStorage["json-file"]);
-  for (let i = 0; i < localStorage.length; i+=1 ){
-    if(localStorage.key(i) !=='slug') {
-      let X = JSON.parse(localStorage.getItem(localStorage.key(i)))['slug'];
-      let Y = JSON.parse(localStorage.getItem('slug'));
-      if (Y===X){
+  for (let i = 0; i < localStorage.length; i += 1) {
+    if ((localStorage.key(i) !== 'slug') && (localStorage.key(i) !== 'BunirFyrirlestrar')) {
+      const X = JSON.parse(localStorage.getItem(localStorage.key(i))).slug;
+      const Y = JSON.parse(localStorage.getItem('slug'));
+      if (Y === X) {
         jsonSkra = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        // Setjum nú gögnin í geymslu, svo við getum sótt þau þegar við 
+        // Setjum nú gögnin í geymslu, svo við getum sótt þau þegar við
         // förum í Content.js
         SaveContent(jsonSkra);
       }
@@ -25,57 +28,63 @@ export default function fyrirlestur() {
   }
 
   jsonSkra = LoadContent();
-  LContent = jsonSkra['content'];
+  LContent = jsonSkra.content;
 
-  let divMain = d.querySelector('main');
+  const divMain = d.querySelector('main');
   divRow = d.createElement('div');
 
   divRow.className = 'FyrirlesturWidth';
   divMain.appendChild(divRow);
 
   // content =
-  Title = d.querySelector('h1');
-  Title.appendChild(d.createTextNode(jsonSkra['title']));
+  const header = d.querySelector('header');
+  const span = d.createElement('span');
+  const h1 = d.createElement('h1');
+
+  span.className = 'heading__category';
+  h1.className = 'heading__title';
+
+  header.appendChild(span);
+  header.appendChild(h1);
+  span.appendChild(d.createTextNode(jsonSkra.category));
+  h1.appendChild(d.createTextNode(jsonSkra.title));
 
   // If site contains video
   // const isVideoPage = page.classList.contains('videoPlayer');
 
-  
 
   for (let i = 0; i < LContent.length; i += 1) {
-    if (LContent[i]['type'] == 'youtube') {
+    if (LContent[i].type === 'youtube') {
       youtubeContent(i);
-    }
-    else if (LContent[i]['type'] == 'text'){
+    } else if (LContent[i].type === 'text') {
       // textContent(i);
       textContent(i);
-    } else if (LContent[i]['type'] == 'quote'){
+    } else if (LContent[i].type === 'quote') {
       quoteContent(i);
-    } else if (LContent[i]['type'] == 'image'){
+    } else if (LContent[i].type === 'image') {
       imageContent(i);
-    } else if (LContent[i]['type'] == 'heading'){
+    } else if (LContent[i].type === 'heading') {
       headingContent(i);
-    } else if (LContent[i]['type'] == 'list'){
+    } else if (LContent[i].type === 'list') {
       listContent(i);
-    }
-    else if (LContent[i]['type'] == 'code'){
+    } else if (LContent[i].type === 'code') {
       codeContent(i);
     }
   }
   Footer();
+  GraentEdaEkki();
   // if (isVideoPage){
   //   videoPlayer();
   // }
 }
 export function klaraFyrirlestur(event) {
-  if ( event.target.className === 'Footer__KlaraFyrirlestur' ) {
+  if ((event.target.className === 'Footer__KlaraFyrirlestur') || (event.target.className === 'Footer__KlaraFyrirlestur Footer__FyrirlesturBuinn')) {
     FyrirlesturBuinToggle();
+    GraentEdaEkki();
   }
 }
 export function FaraAForsidu(event) {
-  if ( event.target.className === 'Footer__Tilbaka' ) {
-    KlaradirFyrirlestrar();
+  if (event.target.className === 'Footer__Tilbaka') {
     window.location.replace('index.html');
   }
 }
-

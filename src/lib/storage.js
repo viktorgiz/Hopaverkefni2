@@ -1,42 +1,43 @@
 let Fyrirlestur;
-let FyrirlesturToggle;
 
-export function SaveContent(jsonSkra){
-    Fyrirlestur = jsonSkra;
+export function SaveContent(jsonSkra) {
+  Fyrirlestur = jsonSkra;
 }
-export function LoadContent(jsonSkra){
-    return Fyrirlestur;
+export function LoadContent() {
+  return Fyrirlestur;
 }
-export function FyrirlesturBuinToggle(){
-    // Hér ætlaði ég að prófa að geyma Kláraða fyrirlestra
-    // Þeir eyddust, 
-    // Þannig að kóðinn er aðeins flóknari en hann þarf að vera
-    // En það sem hann gerir núna er að láta 
-    // Klára fyrirlestur neðst á síðunni vera grænt, 
-    // Síðan er notað annað fall að neðan sem athugar hvort að 
-    // fyrirlesturinn sé búin.
-    let slug = Fyrirlestur['slug'];
-    if (FyrirlesturToggle===undefined){
-        FyrirlesturToggle = [slug];
+export function FyrirlesturBuinToggle() {
+  if (localStorage.getItem('BunirFyrirlestrar') === null) {
+    const json = {
+      'html-sagan': 'Oklarad',
+      'html-element': 'Oklarad',
+      'html-a11y': 'Oklarad',
+      'css-syntax': 'Oklarad',
+      'css-box': 'Oklarad',
+      'css-flexbox': 'Oklarad',
+      'css-responsive': 'Oklarad',
+      'js-basic': 'Oklarad',
+      'js-programs': 'Oklarad',
+      'js-functions': 'Oklarad',
+      'js-array': 'Oklarad',
+      'js-dom': 'Oklarad',
+      'js-example': 'Oklarad',
+    };
+    localStorage.setItem('BunirFyrirlestrar', JSON.stringify(json));
+  }
+  const Fyrirlestrar = JSON.parse(localStorage.getItem('BunirFyrirlestrar'));
+
+  for (const i in Fyrirlestrar) {
+    if (Fyrirlestur.slug === i) {
+      if (Fyrirlestrar[i] === 'Oklarad') {
+        Fyrirlestrar[i] = 'Klarad';
+        localStorage.removeItem('BunirFyrirlestrar');
+        localStorage.setItem('BunirFyrirlestrar', JSON.stringify(Fyrirlestrar));
+      } else if (Fyrirlestrar[i] === 'Klarad') {
+        Fyrirlestrar[i] = 'Oklarad';
+        localStorage.removeItem('BunirFyrirlestrar');
+        localStorage.setItem('BunirFyrirlestrar', JSON.stringify(Fyrirlestrar));
+      }
     }
-    else if (FyrirlesturToggle.includes(slug)) {
-        for( let i = 0; i < FyrirlesturToggle.length; i+=1 ){ 
-            if ( FyrirlesturToggle[i] === slug) {
-              FyrirlesturToggle.splice(i, 1); 
-              i-=1;
-            }
-         }
-    } else{
-        FyrirlesturToggle.push(slug);
-    }
-}
-export function KlaradirFyrirlestrar() {
-    if (FyrirlesturToggle[0] === Fyrirlestur['slug']) {
-        if(localStorage.getItem('BunirFyrirlestrar')===null) {
-            localStorage.setItem('BunirFyrirlestrar', JSON.stringify(FyrirlesturToggle[0]));
-        } else if(JSON.parse(localStorage.getItem('BunirFyrirlestrar')).includes(Fyrirlestur['slug'])) {
-            let BuinBaetaVid = JSON.stringify(gogn['lectures'][i])
-            localStorage.setItem('BunirFyrirlestrar','jaslæ');
-        }
-    }
+  }
 }
