@@ -17,11 +17,10 @@
     cursor: pointer;
 
     background-color: #ccc;
-    border-radius: 1em;
+    border-radius: 16px;
     outline: none;
 
     transition: background-color 300ms ease-in-out;
-
     &:hover{
       background-color: #aaa;
     }
@@ -30,18 +29,6 @@
   outline:none;
 }
 
-
-
-    /*&:hover {
-      background-color: #aaa;
-    }
-    &--active {
-      background-color: #2d2;
-      &:hover {
-        background-color: #1a1;
-      }
-    }
-    */
     
   }
 }
@@ -77,5 +64,3 @@
   
 
 }
-
-

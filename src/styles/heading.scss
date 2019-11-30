@@ -21,15 +21,9 @@
     right: 0;
     bottom: 0;
     left: 0;
-
     content: "";
     background-color: rgba(255, 255, 255, 0.4);
   }
-
-  &--main {
-    background-image: url("../img/header.jpg");
-  }
-
   &__category {
     position: relative;
     z-index: 1;

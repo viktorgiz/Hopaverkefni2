@@ -29,11 +29,20 @@
   }
 
 // Taka flex í burtu
-  &__bottom {
-    display: flex;
-    flex-direction: column;
+  &__bottom{
     padding: $gutter / 2;
     margin-top:auto;
+    display:flex;
+    justify-content: space-between;
+  }
+  &__bottomV {
+    display: flex;
+    flex-direction: column;
+  }
+  &__bottomH {
+    color: #2d2;
+    margin: auto 0;
+    font-size: 45px;
   }
 
   &__texts {
